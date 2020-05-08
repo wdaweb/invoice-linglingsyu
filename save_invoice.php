@@ -10,10 +10,13 @@ $res = $pdo->exec($sql);
 
 if($res>=1){
     echo "新增成功";
-    echo $sql;
+    echo "<a href='list.php'>發票列表</a>";
+    echo "<a href='index.php'>繼續輸入</a>";
 }else{
     echo "新增失敗";
     echo $sql;
 }
+
+
 
 ?>
