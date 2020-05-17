@@ -29,5 +29,8 @@ $user = $statement->fetch();
     <a href="award.php">發票對獎</a>
     <a href="idv.php">變更個人資訊</a>
     </div>
+<?php
+    $_SESSION["name"] = $user["name"];
+?> 
 </body>
 </html>

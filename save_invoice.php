@@ -3,8 +3,8 @@ include "common/base.php";
 
 //函數清除字串前後空白 查表單過濾(injection)
 $period = trim($_POST['period']);
-
-$sql = "insert into `invoice` (`code`,`number`,`period`,`expend`,`year`) values('".$_POST['code']."','".$_POST['number']."','".$period."','".$_POST['pay']."','".$_POST['year']."')";
+$code = strtoupper($_POST['code']);
+$sql = "insert into `invoice` (`code`,`num`,`period`,`expend`,`year`) values('".$_POST['code']."','".$_POST['number']."','".$period."','".$_POST['spend']."','".$_POST['year']."')";
 
 $res = $pdo->exec($sql);
 

@@ -7,82 +7,56 @@
   <title>統一發票管理系統 - 首頁</title>
   <?php include 'include/link.php'; ?>
   <style>
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
-    .wrap{
-    width: 500px;
-    margin-right: 50px;
 
-    }
-
-    .item1{
-    width: 500px;
-    margin: 0 auto;
-}
-    input[type="reset"] {
-      margin: 0 20%;
-    }
-
-    .container2 {
-      width: 300px;
-      height: 300px;
-    }
-
-    .container2 a {
-      display: inline-block;
-      width: 300px;
-      height: 300px;
-      background: #ff0000;
-      border-radius: 50%;
-      line-height: 300px;
+    .form1,
+    .award {
+      margin: 0 auto;
       text-align: center;
-      text-decoration: none;
-      box-shadow: 0 0 20px lightskyblue;
-      font-size: 24px;
-      color: antiquewhite;
     }
-    .item3{
-      text-align: center;
-      margin:20px;
+
+    .note {
+      margin: 0 auto;
+      text-align: left;
     }
-    .item3 a{
-      text-decoration: none;
-      color: #fff;
+    label {
+      width: 100%;
+      margin: 1% 0;
     }
-    .note{
-      padding-left:40px;
+
+    input{
+      width:60%;
+      margin: 1% 0;
+      padding-left:3%;
     }
 
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="wrap">
-      <form action="checklogin.php" method="post">
-        <div class="item1">
+  <div class="container w-50">
+    <div class="row">
+      <form action="checklogin.php" method="post" class="form1">
+        <div class="col">
           <h1>登入帳號</h1>
           <label for="">帳號</label>
           <input type="text" name="acc" id="acc">
           <label for="">密碼</label>
           <input type="password" name="pw" id="pw">
         </div>
-        <div class="item2">
+        <div class="col">
           <input type="reset" value="重填">
           <input type="submit" value="送出">
         </div>
-        <div class="item3">
+        <div class="col">
           <a href="reg.php">註冊帳號</a>
           <span> | </span>
           <a href="">忘記密碼</a>
         </div>
       </form>
-
-      <div class="note">
+    </div>
+    <div class="col">
+      <div class="note w-50">
         <p>登入帳號即可享有個人專屬發票管理頁面！</p>
         <p>您可以：</p>
         <p>1.紀錄所有發票資訊</p>
@@ -90,8 +64,7 @@
         <p>3.一鍵快速對獎</p>
       </div>
     </div>
-
-    <div class="container2">
+    <div class="col award">
       <a href="">不登入，進行快速對獎去！</a>
     </div>
   </div>
