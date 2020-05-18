@@ -4,7 +4,8 @@ include "common/base.php";
 //函數清除字串前後空白 查表單過濾(injection)
 $period = trim($_POST['period']);
 $code = strtoupper($_POST['code']);
-$sql = "insert into `invoice` (`code`,`num`,`period`,`expend`,`year`) values('".$_POST['code']."','".$_POST['number']."','".$period."','".$_POST['spend']."','".$_POST['year']."')";
+$user_id= $_SESSION['id'];
+$sql = "insert into `invoice` (`user_id`,`year`,`period`,`date`,`code`,`num`,`spend`,`create_time`,`update_time`,`note`) values('$user_id','$_POST['year']','$_POST['period']')";
 
 $res = $pdo->exec($sql);
 

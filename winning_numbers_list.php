@@ -39,7 +39,6 @@
 <body>
 
     <h1>中獎號碼列表</h1>
-
     <form action="?" method="GET">
         <div class="year">
             請輸入查詢年月份

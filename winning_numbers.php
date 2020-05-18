@@ -46,9 +46,9 @@
                     <?php
                     include_once("common/base.php");
                     $year = date("Y") - 1911;
-                    $ny = $year + 1;
-                    echo "<option value='$year' selected>" . $year . "</option>";
+                    $ny = $year - 1;
                     echo "<option value='$ny'>" . $ny . "</option>";
+                    echo "<option value='$year' selected>" . $year . "</option>";
                     ?>
                 </select>
                 <select name="period" id="period">

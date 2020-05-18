@@ -66,6 +66,8 @@
                 <option value="5">09-10月</option>
                 <option value="6">11-12月</option>
             </select>
+            <label for="inv_date">發票日期</label>
+            <input type="date" name="inv_date" id="inv_date">
             <label for="code">字軌</label>
             <input type="text" name="code" id="code">
             <label for="num">號碼</label>
