@@ -1,7 +1,7 @@
-<?php  
+<?php
 
 $dsn = "mysql:host=localhost;charser=utf8;dbname=invoice";
-$pdo = new PDO($dsn,'root',"");
+$pdo = new PDO($dsn, 'root', "");
 date_default_timezone_set("Asia/Taipei");
 session_start();
 
@@ -17,20 +17,20 @@ session_start();
 //  $data = ["year"=>"109" , "period"=>"1-2"];
 //  $ans = find('invoice',$data);
 //  print_r($ans);
-function find($table,$arg){
-global $pdo;
-$sql = "select * from `$table`";
-if(is_array($arg)){
-    $arr=[];
-    foreach ($arg as $key => $value){
-    $arr[] = sprintf("`%s`='%s'",$key,$value);    
+function find($table, $arg)
+{
+    global $pdo;
+    $sql = "select * from `$table`";
+    if (is_array($arg)) {
+        $arr = [];
+        foreach ($arg as $key => $value) {
+            $arr[] = sprintf("`%s`='%s'", $key, $value);
+        }
+        $sql = $sql . " where " . implode(" && ", $arr);
+    } else {
+        $sql = $sql . " where `id`='$arg'";
     }
-    $sql = $sql . " where " . implode(" && ",$arr);
-}else{
-    $sql = $sql . " where `id`='$arg'";
-}
-return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
-
+    return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
 /** 尋找多筆資料
@@ -38,13 +38,13 @@ return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
  * 
  * 
  */
-function findall(){
-
+function findall()
+{
 }
 
 
-function delete(){
-
+function delete()
+{
 }
 
 
@@ -57,10 +57,11 @@ function delete(){
  * 
  */
 
-function adddata($table,$arg){
+function adddata($table, $arg)
+{
     global $pdo;
     $key = array_keys($arg);
-    $sql = "insert into `$table` " . " (`" . implode("`,`",$key) . "`)". " values (' " . implode("','",$arg) ."')";
+    $sql = "insert into `$table` " . " (`" . implode("`,`", $key) . "`)" . " values (' " . implode("','", $arg) . "')";
     $res =  $pdo->exec($sql);
 }
 
@@ -68,18 +69,19 @@ function adddata($table,$arg){
  * 更新資料
  * 
  * $table:資料表名稱
- * $arg: 條件(只能是userid)
+ * $arg: 條件(id)
  * update `invoice` set `year` = '109',`period` = '3-4',`date`='2020-03-31',`code`='DD',`num` = '12345678',`spend`='30000',`update_time`='$time',`note`='test2' where `user_id`='1' && `id`=''
  * 
  */
-
- function update($table,$arg){
+$data = ["period" => "3-4", "code" => "DD"];
+update('invoice',$data);
+function update($table, $arg){
     global $pdo;
-    $arr=[];
-    foreach ($arg as $key => $value){
-    $arr[] = sprintf("`%s`='%s'",$key,$value);    
+    if (is_array($arg)) {
+        $arr = [];
+        foreach ($arg as $key => $value) {
+            $arr[] = sprintf("`%s`='%s'", $key, $value);
+        }
+        $sql = "update `$table` set " . implode(",", $arr) . " where `user_id`= '1' && `id` = '$arg' ";
     }
-    $sql = "update `$table` set " . implode(",",$arr) ." where `user_id`= '$arg' && `id` = '' ";
- }
-
-
+}
