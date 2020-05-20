@@ -60,7 +60,6 @@
                     <option value='11-12'>11-12月</option>
                 </select>
             </div>
-
             <div class="item">
                 <div class="numer">
                     <label for="special">特別獎
@@ -130,6 +129,9 @@
                 <input type="submit" value="送出">
                 <input type="reset" value="重填">
             </div>
+            <a href="index.php">回首頁</a>
+            <a href="winning_numbers_list.php">查詢中獎號碼/對獎</a>
+
         </div>
 
         <?php
